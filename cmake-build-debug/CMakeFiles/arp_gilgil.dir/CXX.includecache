@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ujin/CLionProjects/arp_gilgil/PHeader.h
+
+/home/ujin/CLionProjects/arp_gilgil/main.cpp
+iostream
+-
+pcap/pcap.h
+-
+netinet/in.h
+-
+cstring
+-
+PHeader.h
+/home/ujin/CLionProjects/arp_gilgil/PHeader.h
+
