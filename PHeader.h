@@ -1,6 +1,6 @@
 //header
 #pragma once
-
+//#progama pack
 
 struct ethernet_header {
     u_char ether_dhost[6] ={0,}; /* Destination host address */
@@ -18,7 +18,6 @@ struct arp_header{
     u_char send_mac_ad[6]={0,0,0,0,0,0};
     u_char send_ip_ad[4]={0,0,0,0};
     u_char target_mac_ad[6] = {0,0,0,0,0,0};
-    u_char target_ip_ad[4] = {0,0,0,0};
 
 };
 

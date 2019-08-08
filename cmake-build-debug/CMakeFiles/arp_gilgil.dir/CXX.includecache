@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/ujin/CLionProjects/arp_gilgil/PHeader.h
+/home/ujin/CLionProjects/Arp_send_gilgil/PHeader.h
 
-/home/ujin/CLionProjects/arp_gilgil/main.cpp
+/home/ujin/CLionProjects/Arp_send_gilgil/main.cpp
 iostream
 -
 pcap/pcap.h
@@ -18,5 +18,7 @@ netinet/in.h
 cstring
 -
 PHeader.h
-/home/ujin/CLionProjects/arp_gilgil/PHeader.h
+/home/ujin/CLionProjects/Arp_send_gilgil/PHeader.h
+string.h
+-
 

@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ujin/CLionProjects/arp_gilgil/main.cpp" "/home/ujin/CLionProjects/arp_gilgil/cmake-build-debug/CMakeFiles/arp_gilgil.dir/main.cpp.o"
+  "/home/ujin/CLionProjects/Arp_send_gilgil/main.cpp" "/home/ujin/CLionProjects/Arp_send_gilgil/cmake-build-debug/CMakeFiles/arp_gilgil.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -1,4 +1,4 @@
-# Install script for directory: /home/ujin/CLionProjects/arp_gilgil
+# Install script for directory: /home/ujin/CLionProjects/Arp_send_gilgil
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/ujin/CLionProjects/arp_gilgil/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/ujin/CLionProjects/Arp_send_gilgil/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
